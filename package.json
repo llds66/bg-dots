@@ -1,6 +1,6 @@
 {
   "name": "@llds/bg-dots",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "基于 PixiJS 的轻量交互式动态背景点阵",
   "license": "MIT",
   "author": "llds <858400061@qq.com>",
