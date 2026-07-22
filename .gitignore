@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+examples/vue/dist/
+
+# Package archives and logs
+*.tgz
+*.log
+pnpm-debug.log*
+
+# Environment and editor files
+.env
+.env.*
+!.env.example
+.DS_Store
+.vscode/

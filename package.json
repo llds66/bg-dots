@@ -1,0 +1,71 @@
+{
+  "name": "@llds/bg-dots",
+  "version": "0.1.0",
+  "description": "基于 PixiJS 的轻量交互式动态背景点阵",
+  "license": "MIT",
+  "author": "llds <858400061@qq.com>",
+  "type": "module",
+  "sideEffects": false,
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "snipaste"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llds66/bg-dots.git"
+  },
+  "homepage": "https://github.com/llds66/bg-dots#readme",
+  "bugs": {
+    "url": "https://github.com/llds66/bg-dots/issues"
+  },
+  "keywords": [
+    "background",
+    "dots",
+    "dot-matrix",
+    "particles",
+    "pixi",
+    "pixijs",
+    "animation",
+    "interactive",
+    "vue"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "demo": "pnpm build && vite --config examples/vue/vite.config.ts",
+    "demo:build": "pnpm build && vite build --config examples/vue/vite.config.ts",
+    "typecheck": "tsc --noEmit && tsc --noEmit --project examples/vue/tsconfig.json",
+    "verify": "pnpm typecheck && pnpm build && pnpm demo:build",
+    "prepack": "pnpm verify"
+  },
+  "peerDependencies": {
+    "pixi.js": "^8.0.0",
+    "simplex-noise": "^4.0.0"
+  },
+  "devDependencies": {
+    "@tweakpane/core": "^2.0.5",
+    "@types/node": "^26.1.1",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "pixi.js": "^8.19.0",
+    "simplex-noise": "^4.0.3",
+    "tsdown": "^0.22.5",
+    "tweakpane": "^4.0.5",
+    "typescript": "^5.9.3",
+    "vite": "^7.0.0",
+    "vue": "^3.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@11.13.1",
+  "publishConfig": {
+    "access": "public"
+  }
+}
