@@ -2,6 +2,8 @@
 
 一个基于 PixiJS 的轻量交互式动态背景点阵。点位会随噪声缓慢流动，鼠标靠近时避让，点击时扩散波纹。
 
+[在线示例](https://bg-dots.pages.dev/)
+
 ![浅色主题预览](snipaste/Snipaste_1a.png)
 ![深色主题预览](snipaste/Snipaste_1b.png)
 
