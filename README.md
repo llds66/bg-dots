@@ -106,6 +106,11 @@ pnpm demo
 - `instance.resize()`：延迟 200ms 后重新计算点阵，通常无需手动调用。
 - `instance.destroy()`：移除事件、canvas 并释放 PixiJS/WebGL 资源。
 
+
+## 致谢
+
+参考效果 [Anthony Fu](https://antfu.me/)
+
 ## 许可证
 
 [MIT](LICENSE)
