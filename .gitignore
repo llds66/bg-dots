@@ -4,6 +4,8 @@ node_modules/
 # Build output
 dist/
 examples/vue/dist/
+examples/nuxt/.nuxt/
+examples/nuxt/.output/
 
 # Package archives and logs
 *.tgz

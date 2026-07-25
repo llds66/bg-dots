@@ -8,6 +8,8 @@ export interface BackgroundDotsOptions {
   theme?: BackgroundDotsTheme
   lightColor?: number
   darkColor?: number
+  lightBackgroundColor?: string
+  darkBackgroundColor?: string
   particleCount?: number
   minSpacing?: number
   maxSpacing?: number
@@ -40,6 +42,8 @@ interface Ripple { x: number, y: number, startedAt: number }
 const defaults = {
   lightColor: 0x666666,
   darkColor: 0xFFFFFF,
+  lightBackgroundColor: '#ffffff',
+  darkBackgroundColor: '#000000',
   particleCount: 12000,
   minSpacing: 15,
   maxSpacing: 24,
@@ -69,6 +73,7 @@ export function createBackgroundDots(container: HTMLElement, options: Background
   let pointerActive = false
   let pointerX = 0
   let pointerY = 0
+  const originalBackgroundColor = container.style.backgroundColor
   let width = container.clientWidth
   let height = container.clientHeight
   let spacing = getSpacing()
@@ -82,6 +87,15 @@ export function createBackgroundDots(container: HTMLElement, options: Background
 
   function color() {
     return theme === 'dark' ? config.darkColor : config.lightColor
+  }
+
+  function backgroundColor() {
+    return theme === 'dark' ? config.darkBackgroundColor : config.lightBackgroundColor
+  }
+
+  function applyTheme() {
+    container.style.backgroundColor = backgroundColor()
+    for (const point of points) point.particle.tint = color()
   }
 
   function addPoints() {
@@ -197,9 +211,10 @@ export function createBackgroundDots(container: HTMLElement, options: Background
     }
   }
 
+  applyTheme()
   void initialize().catch((error: unknown) => { if (!destroyed) console.error('[@llds/bg-dots]', error) })
   return {
-    setTheme(nextTheme) { theme = nextTheme; for (const point of points) point.particle.tint = color() },
+    setTheme(nextTheme) { theme = nextTheme; applyTheme() },
     resize: onResize,
     destroy() {
       if (destroyed) return
@@ -209,6 +224,7 @@ export function createBackgroundDots(container: HTMLElement, options: Background
       container.removeEventListener('pointermove', onPointerMove)
       container.removeEventListener('pointerleave', onPointerLeave)
       container.removeEventListener('pointerdown', onPointerDown)
+      container.style.backgroundColor = originalBackgroundColor
       if (initialized) app.destroy(true, { children: true, texture: true, textureSource: true })
     },
   }

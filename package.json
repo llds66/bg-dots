@@ -39,8 +39,12 @@
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
-    "demo": "pnpm build && vite --config examples/vue/vite.config.ts",
-    "demo:build": "pnpm build && vite build --config examples/vue/vite.config.ts",
+    "demo:vue": "pnpm build && vite --config examples/vue/vite.config.ts",
+    "demo:vue:build": "pnpm build && vite build --config examples/vue/vite.config.ts",
+    "demo:vanilla": "pnpm build && vite --config examples/vanilla/vite.config.ts",
+    "demo:vanilla:build": "pnpm build && vite build --config examples/vanilla/vite.config.ts",
+    "demo:nuxt": "pnpm build && nuxt dev --cwd examples/nuxt",
+    "demo:nuxt:build": "pnpm build && nuxt build --cwd examples/nuxt",
     "typecheck": "tsc --noEmit && tsc --noEmit --project examples/vue/tsconfig.json",
     "verify": "pnpm typecheck && pnpm build && pnpm demo:build",
     "prepack": "pnpm verify"
@@ -50,13 +54,12 @@
     "simplex-noise": "^4.0.0"
   },
   "devDependencies": {
-    "@tweakpane/core": "^2.0.5",
     "@types/node": "^26.1.1",
     "@vitejs/plugin-vue": "^6.0.0",
+    "nuxt": "^4.5.0",
     "pixi.js": "^8.19.0",
     "simplex-noise": "^4.0.3",
     "tsdown": "^0.22.5",
-    "tweakpane": "^4.0.5",
     "typescript": "^5.9.3",
     "unrun": "^0.3.1",
     "vite": "^7.0.0",
